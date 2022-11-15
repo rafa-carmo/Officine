@@ -1,8 +1,10 @@
 // import { LateralMenu } from 'components/LateralMenu'
-import { House, Users, List, Gear, Wrench } from 'phosphor-react'
+import { House, Users, List, Gear, Wrench, ArrowLeft } from 'phosphor-react'
 
 interface LateralMenuProps {
   showText: boolean
+  openMenu: () => void
+  showMenu: () => void
 }
 
 const menuItems = [
@@ -28,13 +30,29 @@ const menuItems = [
   }
 ]
 
-export function LateralMenu({ showText }: LateralMenuProps) {
+export function LateralMenu({
+  showText,
+  openMenu,
+  showMenu
+}: LateralMenuProps) {
   const selected = 'Home'
   return (
-    <div className="flex flex-col bg-gradient-to-b from-sky-500/75 to-sky-900 h-screen text-zinc-100">
+    <div className="flex flex-col bg-gradient-to-b from-sky-500 to-sky-900 h-screen text-zinc-100">
       <div className="h-24 overflow-hidden">
-        <div className="flex items-center justify-start h-full px-6 w-44 gap-7 cursor-default">
+        <div
+          className="hidden md:flex items-center justify-start h-full px-6 w-44 gap-7 cursor-default"
+          onClick={openMenu}
+        >
           <List size={32} />
+          {process.env.NEXT_PUBLIC_APP_NAME
+            ? process.env.NEXT_PUBLIC_APP_NAME
+            : 'Dashboard'}
+        </div>
+        <div
+          className="flex md:hidden items-center justify-start h-full px-6 w-44 gap-7 cursor-default"
+          onClick={showMenu}
+        >
+          <ArrowLeft size={32} />
           {process.env.NEXT_PUBLIC_APP_NAME
             ? process.env.NEXT_PUBLIC_APP_NAME
             : 'Dashboard'}

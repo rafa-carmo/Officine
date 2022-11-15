@@ -1,6 +1,8 @@
 import { DashboardCard } from 'components/DashboardCard/index'
+import { DashboardTableBudget } from 'components/DashboardTableBudget'
 import { LineChart } from 'components/LineChart'
 import { MinimalCard } from 'components/MinimalCard'
+import { SliderNews } from 'components/SliderNews'
 import { Base } from 'templates/Base'
 
 export function Dashboard() {
@@ -8,19 +10,19 @@ export function Dashboard() {
     <Base>
       <div className=" p-5 flex-1 rounded-xl">
         <div className="flex gap-14 flex-wrap">
-          <div className="w-full md:flex-row flex-col flex gap-14">
-            <div className="md:flex-[3]">
+          <div className="w-full flex flex-col md:flex-row gap-14">
+            <div className="w-full md:w-3/4">
               <DashboardCard
                 title="Welcome"
                 titleSize="large"
                 bgColor="bg-sky-200"
               >
-                <div className="flex w-full relative ">
-                  <div className="relative z-20  h-full">
+                <div className="flex w-full relative z-0  ">
+                  <div className="relative h-full">
                     <h3 className="text-xl font-bold flex-1">
                       Bem vindo ao sistema
                     </h3>
-                    <p className="w-full sm:w-9/12">
+                    <p className="w-full sm:w-9/12 z-10">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industrys
                       standard dummy text ever since the 1500s, when an unknown
@@ -126,14 +128,16 @@ export function Dashboard() {
                 </div>
               </DashboardCard>
             </div>
-            <div className="flex-1 h-full">
-              <DashboardCard title="Slider">Sliders</DashboardCard>
+            <div className="w-full md:w-1/4 h-full">
+              <DashboardCard className="p-0">
+                <SliderNews />
+              </DashboardCard>
             </div>
           </div>
 
           <div className="w-full ">
             <h2 className="font-bold mb-2">Balanço do mês</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-4 gap-5">
               <MinimalCard
                 title="Faturamento do mes"
                 percentage={-2}
@@ -163,9 +167,15 @@ export function Dashboard() {
                 <LineChart />
               </DashboardCard>
             </div>
-            <div className="w-full lg:w-2/4">
-              <DashboardCard title="Orçamentos em aberto">
-                <table></table>
+            <div className="w-full lg:w-2/4 overflow-y-visible-auto max-h-[500px]">
+              <DashboardCard
+                title="Orçamentos em aberto"
+                scroll
+                className="px-5"
+              >
+                <div className="mt-5">
+                  <DashboardTableBudget />
+                </div>
               </DashboardCard>
             </div>
           </div>

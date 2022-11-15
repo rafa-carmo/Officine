@@ -24,7 +24,7 @@ export function Notifications({}: NotificationsProps) {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="bg-zinc-100 absolute left-0 z-10 mt-3 w-56 -translate-x-1/2 transform px-4 sm:px-0 rounded-lg overflow-y-auto">
+        <Popover.Panel className="bg-zinc-100 absolute left-0 z-40 mt-3 w-56 -translate-x-1/2 transform px-4 sm:px-0 rounded-lg overflow-y-auto">
           <div className="w-full h-40 flex items-center justify-center ">
             <span className="text-sm font-semibold">Nenhuma notificação</span>
           </div>

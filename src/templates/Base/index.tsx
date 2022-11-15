@@ -6,26 +6,33 @@ interface BaseProps {
 }
 export function Base({ children }: BaseProps) {
   const [openMenu, setOpenMenu] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className={`relative h-screen overflow-hidden ${darkMode && 'dark'}`}>
       <div
-        className={`fixed z-20  min-h-screen flex flex-col transition-all duration-500 left-0 top-0 bottom-0 ${
+        className={`fixed z-30  min-h-screen flex flex-col transition-all duration-500 md:left-0 top-0 bottom-0 ${
           openMenu ? 'w-52' : 'w-20'
-        }`}
-        onClick={() => setOpenMenu(!openMenu)}
+        }
+        ${showMenu ? 'left-0' : '-left-24'}
+        `}
       >
-        <LateralMenu showText={openMenu} />
+        <LateralMenu
+          showText={openMenu}
+          openMenu={() => setOpenMenu(!openMenu)}
+          showMenu={() => setShowMenu(false)}
+        />
       </div>
 
-      <TopMenu openMenu={openMenu} />
+      <TopMenu openMenu={openMenu} showMenu={() => setShowMenu(true)} />
 
       <main
         className={`
         flex
         flex-col
         ${
-          openMenu ? 'pl-52' : 'pl-20'
+          openMenu ? 'md:pl-52' : 'md:pl-20'
         } mt-24 h-[calc(100vh-96px)] transition-all overflow-x-hidden overflow-y-auto duration-500`}
       >
         {children}

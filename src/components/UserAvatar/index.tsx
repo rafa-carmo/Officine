@@ -33,7 +33,7 @@ const solutions = [
 export function UserAvatar({ name, email, avatar }: UserAvatarProps) {
   return (
     <div className="top-16 w-full max-w-sm px-4">
-      <Popover className="relative">
+      <Popover className="relative z-40">
         {({ open }) => (
           <>
             <Popover.Button className="w-10 h-10 rounded-full overflow-hidden">
@@ -61,8 +61,8 @@ export function UserAvatar({ name, email, avatar }: UserAvatarProps) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-28 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 ">
-                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+              <Popover.Panel className="absolute -left-28 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 ">
+                <div className="overflow-hidden relative z-40  rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative flex flex-col gap-8 bg-white p-5">
                     <div className="flex flex-col text-zinc-800">
                       <span className="font-semibold text-base">{name}</span>

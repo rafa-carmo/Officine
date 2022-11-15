@@ -8,7 +8,7 @@ interface MinimalCardProps {
 export function MinimalCard({ title, percentage, value }: MinimalCardProps) {
   const trendUp = percentage > 0 ? true : false
   return (
-    <section className={`w-full max-w-sm rounded-xl shadow-lg p-5`}>
+    <section className={`w-full sm:max-w-sm rounded-xl shadow-lg p-5`}>
       <h3 className="font-bold">{title}</h3>
       <div className="flex items-center justify-between">
         <div className="gap-2 flex-col py-2">
