@@ -25,7 +25,7 @@ export default function (
       },
       {
         type: 'add',
-        path: '../src/components/{{pascalCase name}}/test.tsx',
+        path: '../src/components/{{pascalCase name}}/test.spec.tsx',
         templateFile: 'templates/test.tsx.hbs'
       }
     ] // array of actions
