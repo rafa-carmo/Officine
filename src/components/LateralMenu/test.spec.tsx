@@ -4,6 +4,8 @@ import { LateralMenu } from '.'
 
 describe('render LateralMenu', () => {
   it('should render a LateralMenu', () => {
-    render(<LateralMenu />)
+    render(
+      <LateralMenu openMenu={() => {}} showMenu={() => {}} showText={false} />
+    )
   })
 })

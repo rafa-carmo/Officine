@@ -4,6 +4,6 @@ import { MinimalCard } from '.'
 
 describe('render MinimalCard', () => {
   it('should render a MinimalCard', () => {
-    render(<MinimalCard />)
+    render(<MinimalCard title="Teste" value={0} percentage={1} />)
   })
 })
