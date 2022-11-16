@@ -121,6 +121,7 @@ export function SliderNews({}: SliderNewsProps) {
               </p>
             </div>
             <div className="absolute top-0 bottom-0 left-0 right-0 bg-zinc-200/20 z-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.urlToImage}
                 alt={item.title}

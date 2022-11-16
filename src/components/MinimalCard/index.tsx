@@ -1,11 +1,18 @@
 import { TrendUp, TrendDown } from 'phosphor-react'
+import { convertToCurrency } from 'utils/currency'
 interface MinimalCardProps {
   title: string
   percentage: number
   value: number
+  currency?: boolean
 }
 
-export function MinimalCard({ title, percentage, value }: MinimalCardProps) {
+export function MinimalCard({
+  title,
+  percentage,
+  value,
+  currency = false
+}: MinimalCardProps) {
   const trendUp = percentage > 0 ? true : false
   return (
     <section className={`w-full sm:max-w-sm rounded-xl shadow-lg p-5`}>
@@ -25,7 +32,9 @@ export function MinimalCard({ title, percentage, value }: MinimalCardProps) {
               {percentage}%
             </span>
           </div>
-          <span className="font-bold text-lg pl-2">R$ {value},00</span>
+          <span className="font-bold text-lg pl-2">
+            {currency ? convertToCurrency(value) : value}
+          </span>
         </div>
 
         <div>Icon</div>

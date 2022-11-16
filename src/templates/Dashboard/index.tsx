@@ -142,6 +142,7 @@ export function Dashboard() {
                 title="Faturamento do mes"
                 percentage={-2}
                 value={5}
+                currency
               />
               <MinimalCard
                 title="Entredas de Equipamentos"
